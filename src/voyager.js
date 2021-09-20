@@ -4,12 +4,12 @@
   const { Voyager } = await import('graphql-voyager');
 
   function introspection(query) {
-    return fetch('https://api.github.com/graphql', {
+    return fetch(`${process.env.API_URL}`, {
       method: 'post',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        Authorization: 'bearer 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',
+        Authorization: `bearer ${process.env.API_TOKEN}`,
       },
       body: JSON.stringify({ query }),
       credentials: 'same-origin',
